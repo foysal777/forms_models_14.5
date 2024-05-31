@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+<style>
+  body {
+    background-color: rgb(119, 207, 244);
+  }
+
+  form input:focus,
+  form input,
+  form select:focus,
+  form select {
+    background-color: rgb(159, 234, 229) !important; 
+  }
+  
+  
+
+</style>
+{% endblock  %}
+<!-- main block start  -->
+{% block main %}
+<h1 class="text-center p-5">This is form page</h1>
+<div class="div">
+  <form method="post" style="width: 50%; margin: auto;">
+    {% csrf_token %}   
+    {{ data | crispy }}
+
+    <button type="submit" class="btn btn-success" >Submit </button>
+  </form>
+</div>
+{% endblock %}
